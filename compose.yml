@@ -1,0 +1,31 @@
+services:
+  api:
+    env_file:
+      - .env
+    build:
+      dockerfile: Dockerfile
+      target: local
+    container_name: api
+    depends_on:
+      - questdb
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "10"
+    ports:
+      - "8080:8080"
+
+  questdb:
+    env_file:
+      - .env
+    container_name: questdb
+    image: questdb/questdb:8.1.4
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
