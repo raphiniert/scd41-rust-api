@@ -1,0 +1,14 @@
+[package]
+name = "scd41-api-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-cors = "0.7.0"
+actix-web = "4"
+chrono = "0.4.38"
+env_logger = "0.11.5"
+juniper = "0.16.1"
+log = "0.4.22"
+questdb-rs = { version = "4.0.3", features = ["chrono_timestamp"] }
+sqlx = { version = "0.8.2", features = ["postgres", "runtime-async-std"] }
