@@ -25,11 +25,22 @@ CREATE TABLE measurements (
 DEDUP UPSERT KEYS(ts, device);
 ```
 
+Query data via:
+
 ```sql
 SELECT * from measurements;
 ```
 
+## Run
+
+```sh
+docker compose up -d
+```
+
+## GraphQL
+
 ### Query
+
 ```graphql
 {
   measurement(device: "1312") {
@@ -40,6 +51,8 @@ SELECT * from measurements;
 }
 ```
 
+### Mutation
+
 ```graphql
 mutation CreateMeasurementEntry($m: NewMeasurement!) {
   createMeasurement(newMeasurement: $m) {
@@ -47,6 +60,9 @@ mutation CreateMeasurementEntry($m: NewMeasurement!) {
   }
 }
 ```
+
+#### Variables
+
 ```graphql
 {
   "m": {
