@@ -50,8 +50,8 @@ pub struct MutationRoot;
 #[juniper::graphql_object(Context = Context)]
 impl MutationRoot {
     fn create_measurement(_context: &Context, new_measurement: NewMeasurement) -> FieldResult<Measurement> {
-        let mut sender = Sender::from_conf(env::var("DATABASE_HTTP_URL").unwrap_or_else(|_| "http::addr=questdb:9000;".to_string()))?;
-        let mut buffer = Buffer::new();
+        let mut sender = Sender::from_conf(env::var("DATABASE_HTTP_URL").unwrap_or_else(|_| "http::addr=questdb:9000;protocol_version=2;".to_string()))?;
+        let mut buffer = Buffer::new(questdb::ingress::ProtocolVersion::V2);
 
         let dt: DateTime<Utc> =  DateTime::parse_from_rfc3339(&new_measurement.ts).expect("Failed to parse datetime string").with_timezone(&Utc);
 
