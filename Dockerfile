@@ -1,4 +1,4 @@
-FROM rust:1.85 AS base
+FROM rust:1.88 AS base
 
 WORKDIR /scd41-api
 
