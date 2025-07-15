@@ -66,7 +66,7 @@ mutation CreateMeasurementEntry($m: NewMeasurement!) {
 ```graphql
 {
   "m": {
-  	"device": "1312",
+    "device": "1312",
     "battery": 90.0,
     "co2": 1000,
     "humidity": 50.0,
