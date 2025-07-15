@@ -20,7 +20,7 @@ services:
     env_file:
       - .env
     container_name: questdb
-    image: questdb/questdb:8.2.2
+    image: questdb/questdb:9.0.0
     logging:
       driver: "json-file"
       options:
