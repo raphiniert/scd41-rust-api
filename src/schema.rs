@@ -83,7 +83,7 @@ pub struct Context {
 }
 impl juniper::Context for Context {}
 
-pub type Schema = RootNode<'static, QueryRoot, MutationRoot, EmptySubscription<Context>>;
+pub type Schema = RootNode<QueryRoot, MutationRoot, EmptySubscription<Context>>;
 
 pub fn create_schema() -> Schema {
     Schema::new(
