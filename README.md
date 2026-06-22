@@ -56,7 +56,7 @@ docker compose up -d
 ```graphql
 mutation CreateMeasurementEntry($m: NewMeasurement!) {
   createMeasurement(newMeasurement: $m) {
-    device
+    ts
   }
 }
 ```
